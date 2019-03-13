@@ -1,107 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Trivia Game</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Our Java Script -->
+    <script src="assets/javascript/app.js"></script>
 </head>
+
 <body>
-    <h1>Trivia</h1>
+    <h1>SpongeBob Trivia</h1>
 
     <button id="start">Start!</button>
     <br>
-    <p class = "question">Question 1:</p>
+    <form style="display:none">
+        <h2>Time Remainig: <span id="timer"></span> seconds</h2>
+        <p id="question">Question 1: What does Spomgebob live in?</p>
+            <input type = "radio" value="correct" name = "question1" > Pineapple <br>
+            <input type = "radio" value="incorrect" name = "question1"> Tomato <br>
+            <input type = "radio" value="incorrect" name = "question1"> Peanut <br>
+            <input type = "radio" value="incorrect" name = "question1"> Pizza <br>
+        <br>
+
+        <p id="question">Question 2: What color is Patrick</p>
+            <input type = "radio" value="incorrect" name = "question2"> Green <br>
+            <input type = "radio" value="correct" name = "question2"> Pink <br>
+            <input type = "radio" value="incorrect" name = "question2"> Orange <br>
+            <input type = "radio" value="incorrect" name = "question2"> Purple <br>
+        <br>
+
+        <p id="question">Question 3: Who is Mr. Krabs arch nemesis?</p>
+            <input type = "radio" value="correct" name = "question3"> Plankton <br>
+            <input type = "radio" value="incorrect" name = "question3"> Sandy Cheeks <br>
+            <input type = "radio" value="incorrect" name = "question3"> Squidward <br>
+            <input type = "radio" value="incorrect" name = "question3"> Larry the Lobster <br>
+        <br>
+
+        <p id="question">Question 4: What animal is Gary</p>
+            <input type = "radio" value="incorrect" name = "question4"> Cat <br>
+            <input type = "radio" value="incorrect" name = "question4"> Dog <br>
+            <input type = "radio" value="correct" name = "question4"> Snail <br>
+            <input type = "radio" value="incorrect" name = "question4"> Seahorse <br>
+        <br>
+
+        <p id="question">Question 5: Where does Spongebob work?</p>
+            <input type = "radio" value="correct" name = "question5"> The Krusty Krab <br>
+            <input type = "radio" value="incorrect" name = "question5"> The Salty Spatoon <br>
+            <input type = "radio" value="incorrect" name = "question5"> The Goofy Goobers Ice Cream Party Boat <br>
+            <input type = "radio" value="incorrect" name = "question5"> Weenie Hut Jr. <br>
+        <br>
+
+        <p id="question">Question 6: "I ate a bowl of nails for breakfast this morning,
+            without any...""
+        </p>
+            <input type = "radio" value="incorrect" name = "question6"> Juice <br>
+            <input type = "radio" value="incorrect" name = "question6"> Spoons <br>
+            <input type = "radio" value="incorrect" name = "question6"> Whiskey <br>
+            <input type = "radio" value="correct" name = "question6"> Milk <br>
+        <br>
+
+        <p id="question">Question 7: What instrument does Squidward play?</p>
+            <input type = "radio" value="correct" name = "question7"> The clarinet <br>
+            <input type = "radio" value="incorrect" name = "question7"> The harmonica <br>
+            <input type = "radio" value="incorrect" name = "question7"> The oboe <br>
+            <input type = "radio" value="incorrect" name = "question7"> The bagpipes <br>
+        <br>
+
+        <p id="question">Question 8: "Licking door knobs is..."</p>
+            <input type = "radio" value="correct" name = "question8"> illegal on other planets <br>
+            <input type = "radio" value="incorrect" name = "question8"> a quick way to get scurvy <br>
+            <input type = "radio" value="incorrect" name = "question8"> the way to the flying dutchman <br>
+            <input type = "radio" value="incorrect" name = "question8"> better than ice cream <br>
+        <br>
+
+        <button id="done">Done!</button>
+
+    </form>
+
+    <div id="gameOver" style="display:none">
+        <p id="numberCorrect">Correct: <span id=correctCounter></span></p>
+        <p id="numberIncorrect">Incorrect: <span id=incorrectCounter></span></p>
+    </div>
+
+
+
+
+    <!-- <p id="question2" style="display:none">
+        <p value="question">Question 2:</p>
+        <br>
+        <ul>
+            <li value="correct">a</li>
+            <li value="incorrect">b</li>
+            <li value="incorrect">c</li>
+            <li value="incorrect">d</li>
+        </ul>
+    </p>
+    <br>
+
+    <p value="question">Question 3:</p>
     <br>
     <ul>
-        <li class="incorrect">a</li>
-        <li class="incorrect">b</li>
-        <li class="incorrect">c</li>
-        <li class="correct">d</li>
+        <li value="incorrect">a</li>
+        <li value="correct">b</li>
+        <li value="incorrect">c</li>
+        <li value="incorrect">d</li>
     </ul>
     <br>
 
-    <p class = "question">Question 2:</p>
+    <p value="question">Question 4:</p>
     <br>
     <ul>
-        <li class="correct">a</li>
-        <li class="incorrect">b</li>
-        <li class="incorrect">c</li>
-        <li class="incorrect">d</li>
+        <li value="correct">a</li>
+        <li value="incorrect">b</li>
+        <li value="incorrect">c</li>
+        <li value="incorrect">d</li>
     </ul>
     <br>
 
-    <p class = "question">Question 3:</p>
+    <p value="question">Question 5:</p>
     <br>
     <ul>
-        <li class="incorrect">a</li>
-        <li class="correct">b</li>
-        <li class="incorrect">c</li>
-        <li class="incorrect">d</li>
-    </ul>
-    <br>
-    
-    <p class = "question">Question 4:</p>
-    <br>
-    <ul>
-        <li class="correct">a</li>
-        <li class="incorrect">b</li>
-        <li class="incorrect">c</li>
-        <li class="incorrect">d</li>
+        <li value="correct">a</li>
+        <li value="incorrect">b</li>
+        <li value="incorrect">c</li>
+        <li value="incorrect">d</li>
     </ul>
     <br>
 
-    <p class = "question">Question 5:</p>
+    <p value="question">Question 6:</p>
     <br>
     <ul>
-        <li class="correct">a</li>
-        <li class="incorrect">b</li>
-        <li class="incorrect">c</li>
-        <li class="incorrect">d</li>
+        <li value="incorrect">a</li>
+        <li value="correct">b</li>
+        <li value="incorrect">c</li>
+        <li value="incorrect">d</li>
     </ul>
     <br>
 
-    <p class = "question">Question 6:</p>
+    <p value="question">Question 7:</p>
     <br>
     <ul>
-        <li class="incorrect">a</li>
-        <li class="correct">b</li>
-        <li class="incorrect">c</li>
-        <li class="incorrect">d</li>
+        <li value="correct">a</li>
+        <li value="incorrect">b</li>
+        <li value="incorrect">c</li>
+        <li value="incorrect">d</li>
     </ul>
     <br>
 
-    <p class = "question">Question 7:</p>
+    <p value="question">Question 8:</p>
     <br>
     <ul>
-        <li class="correct">a</li>
-        <li class="incorrect">b</li>
-        <li class="incorrect">c</li>
-        <li class="incorrect">d</li>
+        <li value="incorrect">a</li>
+        <li value="incorrect">b</li>
+        <li value="correct">c</li>
+        <li value="incorrect">d</li>
     </ul>
-    <br>
-
-    <p class = "question">Question 8:</p>
-    <br>
-    <ul>
-        <li class="incorrect">a</li>
-        <li class="incorrect">b</li>
-        <li class="correct">c</li>
-        <li class="incorrect">d</li>
-    </ul>
-    <br>
+    <br> -->
 
 
-
-
-
-
-
-
-    <!-- Our Java Script -->
-    <script src="assets/javascript/app.js"></script>
-    
 </body>
+
 </html>
